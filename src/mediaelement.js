@@ -175,14 +175,6 @@ export default class MediaElement extends WebAudio {
      * @private
      */
     _load(media, peaks, preload) {
-        // verify media element is valid
-        if (
-            !(media instanceof HTMLMediaElement) ||
-            typeof media.addEventListener === 'undefined'
-        ) {
-            throw new Error('media parameter is not a valid media element');
-        }
-
         // load must be called manually on iOS, otherwise peaks won't draw
         // until a user interaction triggers load --> 'ready' event
         //

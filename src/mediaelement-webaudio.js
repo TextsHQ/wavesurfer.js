@@ -44,7 +44,9 @@ export default class MediaElementWebAudio extends MediaElement {
      */
     _load(media, peaks, preload) {
         super._load(media, peaks, preload);
-        this.createMediaElementSource(media);
+        if (media.constructor.name !== 'OGVPlayer') {
+            this.createMediaElementSource(media);
+        }
     }
 
     /**
