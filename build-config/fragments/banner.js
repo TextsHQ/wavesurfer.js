@@ -2,15 +2,13 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const datefns = require('date-fns');
 
 const rootDir = path.resolve(__dirname, '..', '..');
-const date = datefns.format(new Date(), 'yyyy-MM-dd');
 const pckg = require(path.join(rootDir, 'package.json'));
 
 // library JS banner with copyright and version info
 // prettier-ignore
-const jsBanner = `${pckg.name} ${pckg.version} (${date})
+const jsBanner = `${pckg.name} ${pckg.version}
 ${pckg.homepage}
 @license ${pckg.license}`;
 const libBanner = new webpack.BannerPlugin({
@@ -20,7 +18,7 @@ const libBanner = new webpack.BannerPlugin({
 
 // plugin JS banner with copyright and version info
 // prettier-ignore
-const jsPluginBanner = `${pckg.name} [name] plugin ${pckg.version} (${date})
+const jsPluginBanner = `${pckg.name} [name] plugin ${pckg.version}
 ${pckg.homepage}
 @license ${pckg.license}`;
 const pluginBanner = new webpack.BannerPlugin({
